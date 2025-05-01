@@ -1,7 +1,7 @@
 #!/bin/bash
 
 for fil in ./examples/*.py; do 
-  python $fil;
+  python3 $fil;
   sleep 2;
 done
 
