@@ -1007,7 +1007,7 @@ class Transaction:
         spend_type = ext_flag * 2 + 0  # 0 for hard-coded - no annex_present
 
         tx_for_signing += bytes([spend_type])
-
+        #tx_for_signing += bytes(
         if anyone_can_pay:
             # print('3')
             txin = tmp_tx.inputs[txin_index]
@@ -1070,11 +1070,12 @@ class Transaction:
         # we just check the flag and not actual witnesses so that
         # the unsigned transactions also have the segwit marker/flag
         # TODO make sure that this does not cause problems and delete comment
-        if has_segwit:  # and self.witnesses:
+        # this cause troubles!
+        #if has_segwit:  # and self.witnesses:
             # marker
-            data += b"\x00"
+            #data += b"\x00"
             # flag
-            data += b"\x01"
+            #data += b"\x01"
 
         txin_count_bytes = encode_varint(len(self.inputs))
         txout_count_bytes = encode_varint(len(self.outputs))
